@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import profileReducer from "./profile";
+import profileReducer from "./profileSlice";
 
 export const store = configureStore({
-    profile: profileReducer
+    reducer:{
+        profile: profileReducer
+    }
 })
 
 export type RootState = ReturnType<typeof store.getState>
