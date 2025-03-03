@@ -2,13 +2,10 @@ import { Provider } from "react-redux";
 import { useGetUserQuery } from "./services/api";
 import { store } from "./store";
 
-export type User = {
-	name: string;
-	avatar_url: string;
-};
-
 function App() {
 	const { data: user, isLoading } = useGetUserQuery();
+
+	console.log(user)
 
 	if (isLoading) return <h2>Carregando...</h2>;
 
