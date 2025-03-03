@@ -1,15 +1,21 @@
 import { Provider } from "react-redux";
 import { useGetUserQuery } from "./services/api";
 import { store } from "./store";
+import Profile from "./containers/Profile";
+
+export type User = {
+	id: number,
+	name: string,
+	avatar_url: string,
+	bio: string
+}
 
 function App() {
-	const { data: user, isLoading } = useGetUserQuery();
 
-	console.log(user)
-
-	if (isLoading) return <h2>Carregando...</h2>;
-
-	return <Provider store={store}>{<h1>{user.name}</h1>}</Provider>;
+	return <Provider store={store}>
+		
+		<Profile/>
+		</Provider>;
 }
 
 export default App;
